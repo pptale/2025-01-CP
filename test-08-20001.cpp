@@ -21,20 +21,34 @@ Each line has two integers a and b: you move a disk from stack a to stack b.
 */
 
 #include <iostream>
-#include <vector>
+#include <cmath> // For using pow function
 using namespace std;
 
-int main() {    
-    int t;
-    cin >> t;   
-    long long sum_missing_nrs = 0;
-    
-    /*
+int toh_steps(int n) {
+    return pow(2, n) - 1;
+}
 
-    Code is not complete
-    */
+void print_toh(int n, int from_stack, int using_stack, int to_stack) {
+    /**
+     * Keep in mind the position of the stacks
+     */
+    if (n == 1) {
+        cout << from_stack << " " << to_stack << "\n";
+        return;
+    }
+
+    print_toh(n - 1, from_stack, to_stack, using_stack);
+    cout << from_stack << " " << to_stack << "\n";
+    print_toh(n - 1, using_stack, from_stack, to_stack);
+}
+
+int main() {    
+    int n;
+    cin >> n;   
+    long long num_steps = toh_steps(n);
     
     //Critical line
-    cout << "20001\t" << "Donald Knuth\t" << sum_missing_nrs <<"\n";
+    cout << "20001\t" << "Donald Knuth\t" << num_steps <<"\n";
+    print_toh(n, 1, 2, 3); // Prints the steps in order
     return 0;
 }
