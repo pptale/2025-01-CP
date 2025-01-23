@@ -18,6 +18,7 @@ void two_sum_indices(vector<ll> arr, ll n, ll target) {
 
     for(int i = 0; i<n; i++) {
         if (hashmap.find(target - arr[i]) != hashmap.end() && i != hashmap[target - arr[i]]) {
+            // Increment indices to suffice the condition of 1-based indexing
             cout << i + 1 << " " << hashmap[target - arr[i]] + 1 << endl;
             return;
         }
