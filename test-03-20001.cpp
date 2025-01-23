@@ -17,6 +17,7 @@ git : PranjalUpadhyay7
 #include <iostream>
 #include <sstream>
 #include <vector>
+#include <climits> // For using the defined constant INT_MIN
 using namespace std;
 
 int main() {
@@ -24,7 +25,7 @@ int main() {
     cin >> t;
     cin.ignore();
 
-    long long sum_missing_nrs = 0; 
+    long long total_sum_over_all_testcases = 0; 
 
     for (int i = 0; i < t; i++) {
         string line;
@@ -38,7 +39,7 @@ int main() {
             arr.push_back(num);
         }
 
-        int max_sum = 0;
+        int max_sum = INT_MIN; // Adjusted for the case when all numbers are negative
         int current_sum = 0;
 
         for (int val : arr) {
@@ -46,11 +47,11 @@ int main() {
             max_sum = max(max_sum, current_sum);
         }
 
-        sum_missing_nrs += max_sum;
+        total_sum_over_all_testcases += max_sum;
     }
 
     // Critical line
-    cout << "20001\tDonald Knuth\t" << sum_missing_nrs << "\n";
+    cout << "20001\tDonald Knuth\t" << total_sum_over_all_testcases << "\n";
 
     return 0;
 }
