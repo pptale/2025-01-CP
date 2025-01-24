@@ -24,7 +24,7 @@ int main() {
     cin >> t;   
     long long sum_fib = 0;
     
-    vector<int> testCases(t);
+    vector<int> testCases(t); // Declaration of a vector
     for (int i = 0; i < t; ++i) {
         cin >> testCases[i];
         
