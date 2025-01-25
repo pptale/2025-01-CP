@@ -3,7 +3,7 @@
 #include <cmath>
 using namespace std;
 
-// Function to check if a number is prime
+// Function to check if a number is prime number
 bool isPrime(int n) {
     if (n <= 1) return false;
     for (int i = 2; i * i <= n; ++i) {
